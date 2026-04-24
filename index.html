@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">Gold Rush Trail — Panama Route</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="crt-vignette" aria-hidden="true"></div>
+  <main class="game-frame" role="application" aria-label="Gold Rush Trail game" id="gameFrame">
+    <header class="game-header">
+      <button type="button" class="audio-toggle" id="audioToggle" aria-pressed="false" aria-label="Mute music" title="Mute music">🔊</button>
+      <h1 class="title" id="gameTitle">GOLD RUSH TRAIL</h1>
+      <p class="subtitle" id="gameSubtitle">Panama Route Focus · 1849</p>
+    </header>
+
+    <section class="portrait-panel" aria-label="Scene illustration" id="portraitPanel">
+      <img
+        id="sceneArt"
+        class="portrait-art"
+        src="assets/scene-start.png"
+        alt="1849 New York waterfront and steamships, pixel art"
+        width="640"
+        height="480"
+      />
+    </section>
+
+    <section class="stats-bar" id="statsBar" aria-live="polite">
+      <div class="stat"><span class="stat-label" id="labelHealth">Health</span> <span id="statHealth">—</span></div>
+      <div class="stat"><span class="stat-label" id="labelRations">Rations</span> <span id="statRations">—</span></div>
+      <div class="stat"><span class="stat-label" id="labelGold">Gold</span> <span id="statGold">—</span></div>
+      <div class="stat"><span class="stat-label" id="labelMorale">Morale</span> <span id="statMorale">—</span></div>
+      <div class="stat stat-wide"><span class="stat-label" id="labelLeg">Leg</span> <span id="statLeg">—</span></div>
+    </section>
+
+    <section class="text-panel">
+      <div class="text-scroll" id="narrative"></div>
+      <div class="choices" id="choices"></div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
