@@ -1,0 +1,240 @@
+/* Gold Rush Trail — Oregon Trail aesthetic, 4:3 feel */
+
+:root {
+  --wood-dark: #4a2e18;
+  --wood-mid: #7a4f2a;
+  --wood-light: #c9a06c;
+  --sky: #6ec4ff;
+  --grass: #3d8c3d;
+  --paper: #f4f0e6;
+  --ink: #1a120c;
+  --ui-green: #4a6b3a;
+  --accent: #d4a84b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: radial-gradient(ellipse at center, #2a1810 0%, #0d0805 70%);
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.crt-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
+  z-index: 50;
+}
+
+.game-frame {
+  width: min(720px, 100%);
+  background: var(--wood-dark);
+  padding: 10px;
+  position: relative;
+  border: 4px solid var(--wood-mid);
+  box-shadow:
+    inset 0 0 0 2px var(--wood-light),
+    0 0 0 3px var(--ink),
+    0 12px 40px rgba(0, 0, 0, 0.55);
+  image-rendering: pixelated;
+}
+
+.game-header {
+  position: relative;
+  text-align: center;
+  padding: 12px 56px 10px 8px;
+  background: linear-gradient(180deg, var(--wood-mid) 0%, var(--wood-dark) 100%);
+  border: 3px solid var(--ink);
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #ffe9c4;
+  text-shadow: 2px 2px 0 var(--ink);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 7px;
+  color: var(--wood-light);
+  letter-spacing: 0.5px;
+}
+
+.audio-toggle {
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  width: 42px;
+  height: 42px;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 3px solid var(--ink);
+  background: #efe4cd;
+  color: var(--ink);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.audio-toggle:hover,
+.audio-toggle:focus-visible {
+  background: var(--accent);
+  outline: none;
+}
+
+.portrait-panel {
+  background: var(--sky);
+  border: 3px solid var(--ink);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  max-height: 42vh;
+  margin: 0 auto 8px;
+}
+
+.portrait-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  padding: 8px;
+  background: var(--ui-green);
+  border: 3px solid var(--ink);
+  margin-bottom: 8px;
+  color: #e8f4d8;
+  font-size: 8px;
+}
+
+.stat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.stat-wide {
+  grid-column: 1 / -1;
+}
+
+.stat-label {
+  color: #c8e0a8;
+  text-transform: uppercase;
+}
+
+.text-panel {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: inset 0 0 0 2px var(--ink);
+  padding: 12px 12px 10px;
+  min-height: 180px;
+  position: relative;
+}
+
+.text-scroll {
+  font-size: 9px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.choice-btn {
+  font-family: inherit;
+  font-size: 8px;
+  text-align: left;
+  padding: 10px 10px 10px 12px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.08s ease, transform 0.08s ease;
+}
+
+.choice-btn:hover,
+.choice-btn:focus-visible {
+  background: var(--accent);
+  outline: none;
+}
+
+.choice-btn:active {
+  transform: translateY(1px);
+}
+
+@media (min-width: 600px) {
+  body {
+    font-size: 11px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .subtitle {
+    font-size: 8px;
+  }
+
+  .game-header {
+    padding-right: 60px;
+  }
+
+  .audio-toggle {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+  }
+
+  .stats-bar {
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 9px;
+  }
+
+  .stat-wide {
+    grid-column: span 3;
+  }
+
+  .text-scroll {
+    font-size: 10px;
+  }
+
+  .choice-btn {
+    font-size: 9px;
+  }
+}
